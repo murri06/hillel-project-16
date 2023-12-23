@@ -33,3 +33,7 @@ Route::get('/events', function () {
 Route::get('/events/{id}', function (string $id) {
     return $id;
 });
+
+Route::get('/db', function () {
+    return ;
+});
