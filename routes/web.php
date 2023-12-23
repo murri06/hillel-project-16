@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\{UserController, EventController};
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -14,26 +15,11 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::get('/', function () {
-    return view('welcome');
+    return view('home');
 });
 
-Route::get('/users', function () {
-    return  'users';
-});
+Route::get('/users', [UserController::class, 'table']);
+Route::get('/users/{id}', [UserController::class, 'user']);
 
-Route::get('/users/{id}', function (string $id) {
-    return  $id;
-});
-
-Route::get('/events', function () {
-    return 'events';
-});
-
-
-Route::get('/events/{id}', function (string $id) {
-    return $id;
-});
-
-Route::get('/db', function () {
-    return ;
-});
+Route::get('/events', [EventController::class, 'table']);
+Route::get('/events/{id}', [EventController::class, 'event']);
